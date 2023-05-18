@@ -2,11 +2,8 @@
     include('db.php') ;
     
     $name_table = "Posts" ;
-    
-    $text = $_POST['text'] ;
-
-    $name = $_POST['name'] ;
-
+    $text = $connection->real_escape_string($_POST['text']);
+    $name = $connection->real_escape_string($_POST['name']);
     $date = date("Y-m-d H:i:s") ;
 
     $query = "INSERT INTO `" . $name_table . "` (`text` , `dt`, `username`) VALUES ('$text','$date','$name')";
